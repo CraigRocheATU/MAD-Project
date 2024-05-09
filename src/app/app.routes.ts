@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
+import { WeatherPage } from './Pages/home/weather/weather.page';
 
 export const routes: Routes = [
   {
     path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    loadComponent: () => import('./Pages/home/home.page').then((m) => m.HomePage),
   },
   {
     path: '',
@@ -12,14 +13,10 @@ export const routes: Routes = [
   },
   {
     path: 'weather',
-    loadComponent: () => import('./weather/weather.page').then( m => m.WeatherPage)
-  },
-  {
-    path: 'forecast',
-    loadComponent: () => import('./forecast/forecast.page').then( m => m.ForecastPage)
+    component: WeatherPage
   },
   {
     path: 'settings',
-    loadComponent: () => import('./settings/settings.page').then( m => m.SettingsPage)
+    loadComponent: () => import('./Pages/home/settings/settings.page').then( m => m.SettingsPage)
   },
 ];
