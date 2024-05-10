@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators'; // Import tap operator
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,16 @@ import { HttpClient } from '@angular/common/http';
 export class WeatherService {
 
   constructor(private http: HttpClient) { }
-  getWeather(city: string)
-  {
+
+  getWeather(city: string) {
     const apiKey = "598b4bc0a36d463cbfc165524240805";
-    const apiUrl = "http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no";
-    return this.http.get(apiUrl);
+    const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+    
+    // Make HTTP GET request to weather API
+    return this.http.get(apiUrl).pipe(
+      tap(data => {
+        console.log('Weather API Response:', data);
+      })
+    );
   }
 }

@@ -1,19 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonButtons, IonBackButton } from '@ionic/angular/standalone';
+import { Component} from '@angular/core';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonButtons, IonBackButton, IonLabel, IonIcon, IonCardContent, IonCardHeader, IonCard, IonInput } from '@ionic/angular/standalone';
 import { WeatherService } from '../../../weather.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.page.html',
   styleUrls: ['./weather.page.scss'],
   standalone: true,
-  imports: [IonBackButton, IonButtons, IonButton, IonContent, IonHeader, IonTitle, IonToolbar]
+  imports: [IonInput, IonCard, IonCardHeader, IonCardContent, IonIcon, IonLabel,
+    IonBackButton, IonButtons, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, FormsModule, CommonModule]
 })
-export class WeatherPage implements OnInit {
+export class WeatherPage {
+  weatherData: any;
+  city: string = 'Galway';
 
-  constructor() { }
+  constructor(private weatherService: WeatherService) { }
 
-  ngOnInit() {
+  getWeather(city: string): void {
+    console.log('Fetching weather for city:', city);
+
+    this.weatherService.getWeather(this.city).subscribe(data => {
+      console.log('Received weather data:', data)
+      this.weatherData = data;
+    },
+    error => {
+      console.error('Error fetching weather data', error);
+    }
+  );
   }
 
 }

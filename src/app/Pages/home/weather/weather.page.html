@@ -7,7 +7,24 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">weather</ion-title>
+      <ion-title size="large">Weather</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-card *ngIf="weatherData">
+    <ion-card-header>
+      Current Weather in {{ weatherData.location.name }}, {{ weatherData.location.country }}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-icon name="partly-sunny"></ion-icon>
+      <ion-label>{{ weatherData.current.condition.text }}</ion-label>
+      <ion-label>Temperature: {{ weatherData.current.temp_c }}°C</ion-label>
+      <ion-label>Feels Like: {{ weatherData.current.feelslike_c }}°C</ion-label>
+      <ion-label>Humidity: {{ weatherData.current.humidity }}%</ion-label>
+      <ion-label>Wind: {{ weatherData.current.wind_kph }} km/h</ion-label>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-input [(ngModel)] = "city" placeholder="Enter City"></ion-input>
+  <ion-button expand="block" class="ion-margin" (click)="getWeather(city)">Get Weather</ion-button>
 </ion-content>
