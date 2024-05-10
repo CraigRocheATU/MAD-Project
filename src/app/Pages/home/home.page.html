@@ -5,11 +5,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-button expand="block" class="ion-margin" [routerLink]="['/weather']">
-    Weather
+  <ion-button expand="block" class="ion-margin" routerLink="/weather-current">
+    Current Location Weather
   </ion-button>
-  <ion-button expand="block" class="ion-margin" [routerLink]="['/settings']">
-    Settings
+  <ion-button expand="block" class="ion-margin" routerLink="/weather">
+    Search Weather
+  </ion-button>
+  <ion-button expand="block" class="ion-margin" routerLink="/about">
+    About
   </ion-button>
 </ion-content>
-

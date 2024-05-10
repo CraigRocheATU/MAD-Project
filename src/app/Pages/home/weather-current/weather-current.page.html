@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Search Weather</ion-title>
+    <ion-title>Current Location Weather</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -28,6 +28,5 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-input [(ngModel)] = "city" placeholder="Enter City"></ion-input>
-  <ion-button expand="block" class="ion-margin" (click)="getWeather(city)">Get Weather</ion-button>
+  <ion-button expand="block" class="ion-margin" (click)="getCurrentLocationWeather()">Get Weather</ion-button>
 </ion-content>

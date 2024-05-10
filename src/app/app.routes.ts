@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { WeatherPage } from './Pages/home/weather/weather.page';
+import { WeatherCurrentPage} from './Pages/home/weather-current/weather-current.page'
 
 export const routes: Routes = [
   {
@@ -16,7 +17,13 @@ export const routes: Routes = [
     component: WeatherPage
   },
   {
-    path: 'settings',
-    loadComponent: () => import('./Pages/home/settings/settings.page').then( m => m.SettingsPage)
+    path: 'weather-current',
+    component: WeatherCurrentPage
   },
+  {
+    path: 'about',
+    loadComponent: () => import('./Pages/home/about/about.page').then( m => m.AboutPage)
+  },
+
+
 ];
