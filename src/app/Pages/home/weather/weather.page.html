@@ -14,6 +14,7 @@
     </ion-toolbar>
   </ion-header>
 
+  <!-- displays weather data based of user inputted location -->
   <ion-card *ngIf="weatherData">
     <ion-card-header>
       Current Weather in {{ weatherData.location.name }}, {{ weatherData.location.country }}

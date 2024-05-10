@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
-// Define types for Position and PositionError
 interface Position {
   coords: {
     latitude: number;
     longitude: number;
-    // other properties as needed
   };
   timestamp: number;
 }
@@ -17,6 +15,7 @@ interface PositionError {
   message: string;
 }
 
+// service used throughout multiple pages
 @Injectable({
   providedIn: 'root'
 })
@@ -28,19 +27,6 @@ export class WeatherService {
     const apiKey = "598b4bc0a36d463cbfc165524240805";
     const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
     
-    // Make HTTP GET request to weather API
-    return this.http.get(apiUrl).pipe(
-      tap(data => {
-        console.log('Weather API Response:', data);
-      })
-    );
-  }
-
-  getCurrentWeather(city: string) {
-    const apiKey = "598b4bc0a36d463cbfc165524240805";
-    const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
-    
-    // Make HTTP GET request to weather API
     return this.http.get(apiUrl).pipe(
       tap(data => {
         console.log('Weather API Response:', data);

@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
   imports: [IonInput, IonCard, IonCardHeader, IonCardContent, IonIcon, IonLabel,
     IonBackButton, IonButtons, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, FormsModule, CommonModule]
 })
+// exports WeatherCurrentPage class and sets up functions used in weather-current page
 export class WeatherCurrentPage implements OnInit {
   weatherData: any;
   city: string = 'Galway';

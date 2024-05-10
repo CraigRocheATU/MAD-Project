@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
   imports: [IonInput, IonCard, IonCardHeader, IonCardContent, IonIcon, IonLabel,
     IonBackButton, IonButtons, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, FormsModule, CommonModule]
 })
+// exports WeatherPage class and sets up funtions used in weather page
 export class WeatherPage {
   weatherData: any;
   city: string = 'Galway';

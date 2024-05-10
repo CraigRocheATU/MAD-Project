@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { WeatherPage } from './Pages/home/weather/weather.page';
 import { WeatherCurrentPage} from './Pages/home/weather-current/weather-current.page'
 
+// sets up routing used in application
 export const routes: Routes = [
   {
     path: 'home',
